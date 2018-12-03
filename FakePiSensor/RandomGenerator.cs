@@ -15,6 +15,7 @@ namespace FakePiSensor
 
         public RandomGenerator()
         {
+
             _temperatureRandom = new Random();
             _presureRandom = new Random();
             _humidityRandom = new Random();
