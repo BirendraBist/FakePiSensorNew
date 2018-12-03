@@ -22,7 +22,8 @@ namespace FakePiSensor
         }
 
           public double GetTemperature()
-            {
+
+          {
                 return -_temperatureRandom.Next(95, 140);
             }
         public double GetPressure()
