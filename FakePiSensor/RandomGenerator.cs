@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace FakePiSensor
 {
-     public  class RandomGenerator
+    public  class RandomGenerator
     {
         private Random _temperatureRandom;
         private Random _presureRandom;
         private Random _humidityRandom;
        private Random _userIdRandom;
-
         public RandomGenerator()
         {
             _temperatureRandom = new Random();
