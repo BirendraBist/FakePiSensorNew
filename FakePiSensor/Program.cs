@@ -14,7 +14,7 @@ namespace FakePiSensor
         static void Main(string[] args)
         {
             UdpClient udpSender = new UdpClient(0) { EnableBroadcast = true };
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Broadcast, 7000);
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Broadcast, 7890);
             //udpSender.Connect(endPoint);
             Console.WriteLine("Broadcast ready. Get started Press Enter");
             Console.ReadLine();
@@ -22,15 +22,12 @@ namespace FakePiSensor
             {
                 RandomGenerator _rand = new RandomGenerator();
 
-               double _healthId = _rand.GetHealthId();
-                double _location = _rand.GetLocation();
-                double _bodyTemperature = _rand.GetBodyTemperature();
-                double _upperbloodPressure = _rand.GetUpperbloodPressure();
-                double _lowerbloodPressure = _rand.GetLowerbloodPressure();
-                double _heartBeat = _rand.GetHeartBeat();
+               double _temperature = _rand.GetTemperature();
+                double _pressure = _rand.GetPressure();
+                double _humidity = _rand.GetHumidity();
                 int _userId = _rand.GetUserId();
 
-                string sensorData = $"UserId:{_userId}\n HealthId: {_healthId}\n Location:{_location}\n Body Temperature:{_bodyTemperature}\n Upper blood pressure: {_upperbloodPressure}\n Low Blood Pressure:{_lowerbloodPressure}\n Heart Beat:{_healthId}\n userid:{_userId}\n";
+                string sensorData = $"UserId:{_userId}\n Temperature: {_temperature}\n Pressure:{_pressure}\n Humidity:{_humidity}\n ";
 
                 Byte[] sendBytes = Encoding.ASCII.GetBytes(sensorData);
 
@@ -43,13 +40,11 @@ namespace FakePiSensor
                     Console.WriteLine(e.ToString());
                 }
                 Console.WriteLine("UserId:" + _userId);
-                Console.WriteLine("HealthId:" + _healthId);
-                Console.WriteLine("Location:" + _location);
-                Console.WriteLine("Upper blood Pressure:" + _upperbloodPressure);
-                Console.WriteLine("Lowe Blood Pressure:" + _lowerbloodPressure);
-                Console.WriteLine("Heart beat:" + _heartBeat);
-                Console.WriteLine("Location:" + _location);
-                Console.WriteLine("Broadcasting data on Port no: 7000");
+                Console.WriteLine("Temperature:" + _temperature);
+                Console.WriteLine("Pressure:" + _pressure);
+                Console.WriteLine("Humidity:" + _humidity);
+                
+                Console.WriteLine("Broadcasting data on Port no: 7890");
                 Thread.Sleep(2000);
             }
         }

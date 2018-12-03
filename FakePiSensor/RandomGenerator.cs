@@ -8,56 +8,37 @@ namespace FakePiSensor
 {
      public  class RandomGenerator
     {
-        private Random _healthIdRandom;
-        private Random _locationRandom;
-        private Random _bodyTemperatureRandom;
-        private Random _upperbloodPressureRandom;
-        private Random _lowerbloodPressureRandom;
-        private Random _heartBeatRandom;
-        private Random _userIdRandom;
+        private Random _temperatureRandom;
+        private Random _presureRandom;
+        private Random _humidityRandom;
+       private Random _userIdRandom;
 
         public RandomGenerator()
         {
-            _healthIdRandom =new Random();
-            _bodyTemperatureRandom = new Random();
-            _locationRandom=new Random();
-            _upperbloodPressureRandom= new Random();
-            _lowerbloodPressureRandom=new Random();
-            _heartBeatRandom=new Random();
+            _temperatureRandom = new Random();
+            _presureRandom = new Random();
+            _humidityRandom = new Random();
             _userIdRandom=new Random();
         }
 
-          public double GetHealthId()
+          public double GetTemperature()
             {
-                return _healthIdRandom.Next(95, 140);
+                return -_temperatureRandom.Next(95, 140);
             }
-        public double GetLocation()
+        public double GetPressure()
         {
-            return _locationRandom.Next(95, 140);
+            return _presureRandom.Next(95, 140);
         }
 
-        public double GetBodyTemperature()
+        public double GetHumidity()
             {
-                return _bodyTemperatureRandom.Next(50, 85);
+                return _humidityRandom.Next(50, 85);
             }
 
-        public double GetUpperbloodPressure()
-        {
-            return _upperbloodPressureRandom.Next(70, 130);
-
-        }
-
-        public double GetLowerbloodPressure()
-        {
-            return _lowerbloodPressureRandom.Next(70, 130);
-        }
-        public double GetHeartBeat()
-        {
-            return _heartBeatRandom.Next(70, 100);
-        }
         public int GetUserId()
         {
-            return _userIdRandom.Next(1, 100);
+            return _userIdRandom.Next(0, 130);
+
         }
 
     }
