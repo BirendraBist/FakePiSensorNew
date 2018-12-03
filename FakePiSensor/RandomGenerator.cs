@@ -28,6 +28,7 @@ namespace FakePiSensor
         public double GetPressure()
         {
             return _presureRandom.Next(95, 140);
+
         }
 
         public double GetHumidity()
